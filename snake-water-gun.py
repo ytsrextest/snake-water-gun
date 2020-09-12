@@ -1,76 +1,67 @@
 import random
-lst = ['s','w','g']
-
+listt = ['s', 'w', 'g']
 chance = 10
 no_of_chance = 0
-computer_point = 0
-human_point = 0
+computer_Point = 0
+human_Point = 0
+print("\t\tSnake Water Gun Game")
 
-print(" \t \t \t \t Snake,Water,Gun Game\n \n")
-print("s for snake \nw for water \ng for gun \n")
-
-# making the game in while
 while no_of_chance < chance:
-    _input = input('Snake,Water,Gun:')
-    _random = random.choice(lst)
+    choose = random.choice(listt)
+    # print(choose)
+    print(f"\t\t{chance - no_of_chance} is Left Out of {chance}")
+    mplay = input("\nPress s - For Snake\nPress w - For Water\nPress g - Fro Gun\n-->>>")
 
-    if _input == _random:
-        print("Tie Both 0 point to each \n ")
+    if mplay == choose:
+        print("Game Tie, Both Get 0 Point\n")
+    elif mplay == 's' and choose == "g":
+        computer_Point = computer_Point + 1
+        print("Computer got 1 Point\n")
+        print(f"Computer choose {choose} & You Choose {mplay}")
+        print(f"Computer Point is {computer_Point} & Your Point is  {human_Point}\n")
 
-    # if user enter s
-    if _input == "s" and _random == "g":
-        computer_point = computer_point + 1
-        print(f"your guess {_input} and computer guess is {_random} \n")
-        print("computer wins 1 point \n")
-        print(f"computer_point is {computer_point} and your point is {human_point} \n ")
+    elif mplay == 's' and choose == 'w':
+        human_Point = human_Point + 1
+        print("You got 1 point\n")
+        print(f"Computer choose {choose} & You Choose {mplay}")
+        print(f"Computer Point is {computer_Point} & Your Point is  {human_Point}\n")
 
-    elif _input == "s" and _random == "w":
-        human_point = human_point + 1
-        print(f"your guess {_input} and computer guess is {_random} \n")
-        print("Human wins 1 point \n")
-        print(f"computer_point is {computer_point} and your point is {human_point} \n")
+    elif mplay == 'w' and choose == 's':
+        computer_Point = computer_Point + 1
+        print("Computer got 1 point\n")
+        print(f"Computer choose {choose} & You Choose {mplay}")
+        print(f"Computer Point is {computer_Point} & Your Point is  {human_Point}\n")
 
-    # if user enter w
-    elif _input == "w" and _random == "s":
-        computer_point = computer_point + 1
-        print(f"your guess {_input} and computer guess is {_random} \n")
-        print("computer wins 1 point \n")
-        print(f"computer_point is {computer_point} and your point is {human_point} \n ")
+    elif mplay == 'w' and choose == 'g':
+        human_Point = human_Point + 1
+        print("You got 1 point\n")
+        print(f"Computer choose {choose} & You Choose {mplay}")
+        print(f"Computer Point is {computer_Point} & Your Point is  {human_Point}\n")
 
-    elif _input == "w" and _random == "g":
-        human_point = human_point + 1
-        print(f"your guess {_input} and computer guess is {_random} \n")
-        print("Human wins 1 point \n")
-        print(f"computer_point is {computer_point} and your point is {human_point} \n")
+    elif mplay == 'g' and choose == 's':
+        human_Point = human_Point + 1
+        print("You got 1 point\n")
+        print(f"Computer choose {choose} & You Choose {mplay}")
+        print(f"Computer Point is {computer_Point} & Your Point is  {human_Point}\n")
 
-    # if user enter g
-
-    elif _input == "g" and _random == "s":
-        human_point = human_point + 1
-        print(f"your guess {_input} and computer guess is {_random} \n")
-        print("Human wins 1 point \n")
-        print(f"computer_point is {computer_point} and your point is {human_point} \n")
-
-
-    elif _input == "g" and _random == "w":
-        computer_point = computer_point + 1
-        print(f"your guess {_input} and computer guess is {_random} \n")
-        print("computer wins 1 point \n")
-        print(f"computer_point is {computer_point} and your point is {human_point} \n ")
-
-    else:
-        print("you have input wrong \n")
+    elif mplay == 'g' and choose == 'w':
+        computer_Point = computer_Point + 1
+        print("Computer got 1 point\n")
+        print(f"Computer choose {choose} & You Choose {mplay}")
+        print(f"Computer Point is {computer_Point} & Your Point is  {human_Point}\n")
+    # You Can Use Else here instant of elif
+    elif mplay is not 'g' or 's' or 'w':
+        print(f"{mplay} is An Invalid Input ! Please Try Again.\n")
+        continue
 
     no_of_chance = no_of_chance + 1
-    print(f"{chance - no_of_chance} is left out of {chance} \n")
+    # print(f"{chance - no_of_chance} is Left Out of {chance}\n")
 
-print("Game over")
 
-if computer_point > human_point:
-    print("Computer wins and you loose")
-
-if computer_point < human_point:
-    print("you win and computer loose")
-
-print(f"your point is {human_point} and computer point is {computer_point}")
-
+print("Game Over\n")
+if computer_Point > human_Point:
+    print("Computer Win This Game!")
+    print(f"Your Point is {human_Point} & Computer Point is {computer_Point}")
+elif computer_Point < human_Point:
+    print("You Win This Game!")
+    print(f"Your Point is {human_Point} & Computer Point is {computer_Point}")
