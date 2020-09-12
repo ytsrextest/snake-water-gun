@@ -17,8 +17,8 @@ while no_of_chance < chance:
     if _input == _random:
         print("Tie Both 0 point to each \n ")
 
-    # if user enter s
-    if _input == "s" and _random == "g":
+    # elif user enter s
+    elif _input == "s" and _random == "g":
         computer_point = computer_point + 1
         print(f"your guess {_input} and computer guess is {_random} \n")
         print("computer wins 1 point \n")
